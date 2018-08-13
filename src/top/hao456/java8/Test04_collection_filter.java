@@ -15,9 +15,6 @@ public class Test04_collection_filter {
 			  .forEach(p -> {
 				  	System.out.println(p);
 			  			});
-			  
-		
-		
 	}
 	
 	public static List<Person> createPerson(){
