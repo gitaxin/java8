@@ -39,3 +39,12 @@
  		例如：判断p对象是否为男性的lambda表达式：
  			Stream<Person> stream = people.stream();
  			stream = stream.filter(p->p.getGender() == '男');
+ 			
+ 			
+ 			
+ 			
+ 			
+# 【过滤器案例】
+	过滤出集合中名字含有“菲”字的Person对象
+	
+	 
