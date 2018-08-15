@@ -47,4 +47,13 @@
 # 【过滤器案例】
 	过滤出集合中名字含有“菲”字的Person对象
 	
+	
+# DoubleStream接口
+## 一、DoubleStream接口表示元素类型是double的数据源。
+## 二、DoubleStream接口的常用方法：
+	1. stream.max().getAsDouble():获取流中数据集的最大值。
+	2. stream.min.getAsDouble():获取流中数据集的最小值。
+	3. stream.average():获取流中数据集的平均值。
+	
+## 【案例】统计people集合中姓名中包含“菲”字的平均身高。
 	 
