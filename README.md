@@ -114,7 +114,80 @@ java8的LocalDate类:2018-8-16
 java8的LocalDate类的toString方法：2018-08-16
 ```
  从以上运行结果可知：java8前的Calendar类输出的月份是从0开始，总是比实际月份小1个月，而java8的LocalDate类月份是从1开始的
+ 
+ 
+# LocalTime类
 
-本文代码资源请戳：
-https://github.com/gitHjx/java8.git
+# 一、概述
+   1. LocalTime类表示一天中的时间
+# 二、常用方法
+1. LocalTime.now(): 静态方法，获取系统当前时间。
+2. LocalTime.of(int hour, int minute, int second)
+	按指定时间创建LocalTime对象。
+3. getHour():返回小时.
+4. getMinute():返回分钟。
+5. getSecond():返回秒。
+
+# 【案例】用LocalTime获取当前时间
+
+测试代码如下：
+```
+public class Test07_localTime {
+
+	/**
+	 * 【案例】用LocalTime获取当前时间
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		
+		
+		/**
+		 * java8前的Calendar
+		 */
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(new Date());
+		int hour = calendar.get(Calendar.HOUR);
+		int minute = calendar.get(Calendar.MINUTE);
+		int second = calendar.get(Calendar.SECOND);
+		System.out.println("java8前的Calendar类:"+hour+":"+minute+":"+second);
+		
+		
+		
+		
+		/**
+		 * java8的 LocalTime类
+		 */
+		LocalTime localTime = LocalTime.now();
+		hour = localTime.getHour();
+		minute = localTime.getMinute();
+		second = localTime.getSecond();
+		System.out.println("java8的LocalTime类:"+hour+":"+minute+":"+second);
+		System.out.println("LocalTime的toString方法："+localTime.toString());
+		
+		LocalTime localTime2 = localTime.of(12, 12,12);//指定时间
+		hour = localTime2.getHour();
+		minute = localTime2.getMinute();
+		second = localTime2.getSecond();
+		System.out.println("指定时间的LocalTime:"+hour+":"+minute+":"+second);
+		System.out.println(localTime2.toString());
+		
+	}
+	
+}
+
+
+```
+
+运行以上代码，控制台打印输出结果如下：
+```
+java8前的Calendar类:11:34:6
+java8的LocalTime类:23:34:6
+LocalTime的toString方法：23:34:06.609
+指定时间的LocalTime:12:12:12
+12:12:12
+
+```
+
+
+
 	 
