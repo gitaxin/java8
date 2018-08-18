@@ -188,6 +188,98 @@ LocalTime的toString方法：23:34:06.609
 
 ```
 
+# LocalDateTime类
+ ----
+# 一、概述
+   LocalDateTime类用于表示日期和时间。
+# 二、常用方法
+  1. LocalDateTime.now()：获取系统当前时间。
+  2. LocalDateTime.of(int year,int month,int dayOfMonth,int hour,int minute,int second):按指定日期和时间创建LocalDateTime对象。
+  3. getYear():返回日期中的年份。
+  4. getMonth():返回日期中的月份。
+  5. getDayOfMonth():返回月份中的日。
+  6. getHour():返回小时。
+  7. getMinute():返回分钟.
+  8. getSecond():返回秒。
+
+# 【案例】 用LocalDateTime获取当前日期和时间。
+
+测试代码如下：
+```
+public class Test08_localDateTime {
+	
+	public static void main(String[] args) {
+		/**
+		 * 【案例】 用LocalDateTime获取当前日期和时间。
+		 */
+		
+		LocalDateTime dateTime = LocalDateTime.now();
+		int year = dateTime.getYear();
+		int month = dateTime.getMonthValue();
+		int day = dateTime.getDayOfMonth();
+		int hour = dateTime.getHour();
+		int minute = dateTime.getMinute();
+		int second = dateTime.getSecond();
+		System.out.println("java8LocalDateTime类:"+year+"年"+month+"月"+day+"日 "+hour+":"+minute+":"+second);
+		System.out.println("java8LocalDateTime类的toString:"+dateTime);
+		
+	}
+
+}
+
+
+```
+
+运行以上代码，控制台打印输出结果如下：
+```
+java8LocalDateTime类:2018年8月18日 22:27:13
+java8LocalDateTime类的toString:2018-08-18T22:27:13.906
+```
+# DateTimeFormatter类
+ ---
+# 一、概述
+  DateTimeFormatter类用于将字符串解析为日期对象
+# 二、常用方法
+  1. static ofPattern(String pattern):静态方法，根据指定的字符串设定的格式，将返回一个DateTimeFormatter对象。
+  2. LocalDateTime.parse(strDate,formatter);静态方法，此方法将指定的字符串strDate,按DateTimeFormatter对象的字符串格式解析为一个LocalDateTime对象。
+  3. format(formatter):此方法属于LocalDateTime类的方法。用于将LocalDateTime对象按照DateTimeFormatter指定的格式，转换为一个字符串对象。
+
+# 【案例】将字符串"2018-08-18 22:30:22"解析为一个LocalDateTime对象
+测试代码如下：
+```
+public class Test09_dateTimeFormatter {
+	/**
+	 * 【案例】将字符串"2018-08-18 22:30:22"解析为一个LocalDateTime对象
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		
+		DateTimeFormatter formatter =
+						DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+		//将字符串按照DateTimeFormatter对象指定的格式解析为LocalDateTime对象
+		LocalDateTime date = LocalDateTime.parse("2018-08-18 22:30:22", formatter);
+		System.out.println(date.toString());
+		
+		//将LocalDateTime对象按照DateTimeFormatter指定的格式转换为字符串输出
+		formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd_HH/mm/ss");
+		String str = date.format(formatter);
+		System.out.println(str);
+		
+	}
+
+}
+
+
+```
+运行以上代码，控制台打印输出结果如下：
+```
+2018-08-18T22:30:22
+2018/08/18_22/30/22
+```
+
+
+- Java8新增的DateTimeFormatter与SimpleDateFormat最大区别是:Java8的DateTimeFormatter是线程安全的，而SimpleDateFormat不是线程安全。
+
 
 
 	 
