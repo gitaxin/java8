@@ -281,5 +281,43 @@ public class Test09_dateTimeFormatter {
 - Java8新增的DateTimeFormatter与SimpleDateFormat最大区别是:Java8的DateTimeFormatter是线程安全的，而SimpleDateFormat不是线程安全。
 
 
+# ZonedDateTime类
+ ---
+# 一、概述
+  ZonedDateTime处理日期和时间与相应的时区
+# 二、常用方法
+  1. ZonedDateTime.now()：获取系统当前日期和时间。
+  2. String format(DateTimeFormatter formatter):
+    根据DateTimeFormatter对象设置的格式将日期转换为一个字符串
+  3. plusDays(int days); 加上指定的天数，
+# 【案例】将当前日期格式化为字符串并显示年、月、日、时、分和秒。
+
+测试代码如下：
+~~~
+public class Test10_zonedDateTime {
+	/**
+	 * 【案例】将当前日期格式化为字符串并显示年、月、日、时、分和秒。
+	 * 
+	 */
+	public static void main(String[] args) {
+		ZonedDateTime now = ZonedDateTime.now();
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yy HH:mm:ss");
+		String strDate = now.format(formatter);
+		System.out.println("format方法返回的字符串："+strDate);
+		now = now.plusDays(1);//当前日期 加上1天
+		String strDate2 = now.format(formatter);
+		System.out.println("加上一天后的日期："+strDate2);
+	}
+}
+
+~~~
+
+运行上述代码控制台打印结果如下：
+~~~
+format方法返回的字符串：08/19/18 23:05:40
+加上一天后的日期：08/20/18 23:05:40
+~~~
+
+
 
 	 
